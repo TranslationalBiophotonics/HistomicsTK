@@ -1,3 +1,4 @@
+# 18.04 also works
 FROM ubuntu:16.04
 MAINTAINER David Manthey <david.manthey@kitware.com>
 
@@ -11,7 +12,8 @@ RUN apt-get update && \
     && \
     sudo rm -rf /var/lib/apt/lists/* /tmp/*
 RUN pip install -U pip
-RUN pip install -U --upgrade-strategy eager 'ansible<2.5'
+# RUN pip install -U --upgrade-strategy eager 'ansible<2.5'
+RUN pip install ansible
 RUN locale-gen en_US.UTF-8
 RUN adduser --disabled-password --gecos '' ubuntu && \
     adduser ubuntu sudo && \
